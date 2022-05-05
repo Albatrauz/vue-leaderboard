@@ -1,0 +1,25 @@
+$('.map')
+	      .gmap3({
+	        center:[51.435925, 5.605774],
+	        zoom:8,
+	        panControl: true,
+	        panControlOptions: {
+				position: google.maps.ControlPosition.LEFT_CENTER
+			},
+			zoomControl: true,
+			zoomControlOptions: {
+				position: google.maps.ControlPosition.LEFT_CENTER,
+				style: google.maps.ZoomControlStyle.SMALL
+			},
+			mapTypeControl: false,
+			streetViewControl: false
+	      }).marker(properties)
+	      .on('click', function (marker) {
+		      	makeOverlay(marker);
+		      	marker.map.panTo(marker.getPosition());
+			})
+	      	.then(function (markers){
+	      		aMarkers = markers;
+	      	});
+
+		});
