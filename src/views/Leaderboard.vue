@@ -1,31 +1,21 @@
 
 <script setup>
-import { useUsers } from "../store/users.js"
-import { reactive } from "vue";
+import { getAnalytics } from "firebase/analytics";
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from "../database/firebase.js";
 
-const user = {
-    id: 0,
-    name: ''
-}
-let users = [];
+console.log(firebaseConfig);
 
- user: {
-    name: ''
-}
+// const app = initializeApp(firebaseConfig);
 
-// const user = useUsers()
+// const database = firebase.database();
 
-const atPress = () => {
-    users.push(user);
-    user.id++
-    console.log(users)
-}
+// database.ref('Users').on('value', snapshot => console.log(snapshot.val()))
 
 </script>
 
 <template>
 
-    <input type="text" placeholder="Naam" v-model="user.id">
-    <div @click="atPress">hoi</div>
-    {{user.name}}
+    <input type="text" placeholder="Naam">
+
 </template>
